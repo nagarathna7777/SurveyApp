@@ -165,15 +165,21 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Home from './Screens/Home';
 import Details from './Screens/details';
 import SurveyQuestions from './Screens/SurveyQuestions';
+import SurveyList from './Screens/SurveyList';
+import SubmittedScreen from './Screens/SubmittedScreen';
+import Login from './Screens/Login';
 
 const App = () => {
   const Stack = createNativeStackNavigator();
   return (
     <NavigationContainer>
       <Stack.Navigator>
+      <Stack.Screen name="Login" component={Login}   options={{ headerShown: false }} />
         <Stack.Screen name="Home" component={Home} options={{ title: 'Data Logger'}}  />
-        <Stack.Screen name="Details" component={Details} />
-        <Stack.Screen name="SurveyQuestions" component={SurveyQuestions} />
+        <Stack.Screen name="Details" component={Details} options={{ title: 'List of DMR'}} />
+        <Stack.Screen name="SurveyQuestions" component={SurveyQuestions} options={{ title: 'DMR Report'}}  />
+        <Stack.Screen name="SurveyList" component={SurveyList} options={{ title: 'Survey List'}}  />
+        <Stack.Screen name="SubmittedScreen" component={SubmittedScreen} options={{ title: 'Submitted Data'}}  />
       </Stack.Navigator>
     </NavigationContainer>
   );
